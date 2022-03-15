@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "e00c0605-771b-42a5-a272-7823860f0d09",
+		"name": "295P CovidExposureAlert",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CornerCase",
+			"item": [
+				{
+					"name": "uploadStatusVisitorNotExisit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response Status Should Not Succeed\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;charset=UTF-8",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"{{email}}\",\n  \"status\": \"{{status}}\",\n  \"timestamp\": \"{{timestamp}}\"\n}"
+						},
+						"url": {
+							"raw": "https://api.macoredroid295homework.com/record/uploadStatus",
+							"protocol": "https",
+							"host": [
+								"api",
+								"macoredroid295homework",
+								"com"
+							],
+							"path": [
+								"record",
+								"uploadStatus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "getHeatMapByExposedCases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.macoredroid295homework.com/record/getHeatMapByExposedCases",
+					"protocol": "https",
+					"host": [
+						"api",
+						"macoredroid295homework",
+						"com"
+					],
+					"path": [
+						"record",
+						"getHeatMapByExposedCases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getHeatMapByActiveCases",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.macoredroid295homework.com/record/getHeatMapByActiveCases",
+					"protocol": "https",
+					"host": [
+						"api",
+						"macoredroid295homework",
+						"com"
+					],
+					"path": [
+						"record",
+						"getHeatMapByActiveCases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCasesByDay",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.macoredroid295homework.com/record/getCasesByDay",
+					"protocol": "https",
+					"host": [
+						"api",
+						"macoredroid295homework",
+						"com"
+					],
+					"path": [
+						"record",
+						"getCasesByDay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDailyCases",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json;charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"latitude\": \"{{latitude}}\",\n  \"longitude\": \"{{longitude}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.macoredroid295homework.com/recrod/getDailyCases",
+					"protocol": "https",
+					"host": [
+						"api",
+						"macoredroid295homework",
+						"com"
+					],
+					"path": [
+						"recrod",
+						"getDailyCases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSatus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"{{email}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.macoredroid295homework.com/record/getStatus",
+					"protocol": "https",
+					"host": [
+						"api",
+						"macoredroid295homework",
+						"com"
+					],
+					"path": [
+						"record",
+						"getStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getIndexForLocations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify response status\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json;charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"county\": \"{{county}}\",\n  \"latitude\": \"{{latitude}}\",\n  \"longitude\": \"{{longitude}}\",\n  \"name\": \"{{name}}\",\n  \"state\": \"{{state}}\",\n  \"type\": \"{{type}}\",\n  \"zipcode\": \"{{zipcode}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.macoredroid295homework.com/record/getIndexForLocations",
+					"protocol": "https",
+					"host": [
+						"api",
+						"macoredroid295homework",
+						"com"
+					],
+					"path": [
+						"record",
+						"getIndexForLocations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uploadRecord",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"{{email}}\",\n  \"locationId\": \"{{location}}\",\n  \"timestamp\": \"{{timestamp}}\"\n}"
+				},
+				"url": {
+					"raw": "https://api.macoredroid295homework.com/record/uploadRecord",
+					"protocol": "https",
+					"host": [
+						"api",
+						"macoredroid295homework",
+						"com"
+					],
+					"path": [
+						"record",
+						"uploadRecord"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uploadStatusVisitorExisit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"{{email}}\",\n  \"status\": \"{{status}}\",\n  \"timestamp\": \"{{timestamp}}\"\n}"
+				},
+				"url": {
+					"raw": "https://api.macoredroid295homework.com/record/uploadStatus",
+					"protocol": "https",
+					"host": [
+						"api",
+						"macoredroid295homework",
+						"com"
+					],
+					"path": [
+						"record",
+						"uploadStatus"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
